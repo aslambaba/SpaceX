@@ -21,7 +21,7 @@ function MainPage() {
   console.log(Results);
   return (
     <div className='MainContainer'>
-      <h1>GQL PAGE</h1>
+      <h1>SpaceX</h1>
       {
         Object.keys(Results).map(Obj => {
           let status;
