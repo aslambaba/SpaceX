@@ -1,0 +1,21 @@
+.LaunchConatiner{
+    padding: 20px 20px;
+    height: 100vh;
+    background-color: #121212;
+}
+.LaunchConatiner h2{
+    color: white;
+}
+.launchdetails{
+    padding: 10px 20px;
+    background-color: gray;
+    border: none;
+    border-radius: 5px;
+}
+.LinkD{
+    text-decoration: none !important;
+}
+.rocketname{
+    padding: 10px 20px;
+    background-color: gray;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import './styles/MainPage.css';
+
 const EXCHANGE_RATES = gql`
 query{
   lanches{
@@ -12,26 +14,35 @@ query{
   
 `;
 function MainPage() {
-    const { loading, error, data } = useQuery(EXCHANGE_RATES);
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :(</p>;
-    const Results = data.lanches;
-    console.log(Results);
-    return (
-        <div>
-            <h2>GQL PAGE</h2>
-            {
-              Object.keys(Results).map(Obj=>{
-                return(
-                  <div>
-                    <Link to={`/launch/${Results[Obj].flight_number}`} ><p>{Results[Obj].mission_name}</p></Link>
-                    <p>{Results[Obj].lanche_success}</p>
-                  </div>
-                )
-              })
-            }
-        </div>
-    )
+  const { loading, error, data } = useQuery(EXCHANGE_RATES);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+  const Results = data.lanches;
+  console.log(Results);
+  return (
+    <div className='MainContainer'>
+      <h1>GQL PAGE</h1>
+      {
+        Object.keys(Results).map(Obj => {
+          let status;
+          if(Results[Obj].launch_success){
+            status = 'Successful';
+          }
+          else{
+            status = 'Failed';
+          }
+          return (
+            <Link to={`/launch/${Results[Obj].flight_number}`} className='LinkD'>
+              <div className="LanchesItem">
+                <h2>{Results[Obj].mission_name}</h2>
+                <p>{status}</p>
+              </div>
+            </Link>
+          )
+        })
+      }
+    </div>
+  )
 }
 
 export default MainPage;

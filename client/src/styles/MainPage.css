@@ -1,0 +1,27 @@
+*{
+    text-decoration: none !important;
+}
+body{
+    margin: 0 0;
+}
+.MainContainer{
+    background-color:#121212;
+    padding: 20px 10%;
+}
+.MainContainer h1{
+    color: white;
+    margin: 0 0;
+    text-align: center;
+}
+.LanchesItem{
+    margin: 10px 0px;
+    border: 1px solid black;
+    padding: 0px 20px;
+    background-color: gray;
+}
+.LinkD{
+    text-decoration: none !important;
+}
+.LanchesItem h2{
+    color: white;
+}
